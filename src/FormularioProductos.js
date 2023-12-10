@@ -39,10 +39,25 @@ const StyledFormularioProductos = styled.div`
         border-color: #007bff;
       }
     }
+}`;
 
-}
 
-  `;
+const SubmitButton = styled.button`
+  background-color: #28a745; /* Color verde */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-top: 10px;
+  align-self: flex-end; /* Mover el botón al extremo derecho */
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #218838;
+  }
+`;
 
 
 
