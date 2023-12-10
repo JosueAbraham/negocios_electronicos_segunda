@@ -39,7 +39,8 @@ const StyledFormularioProductos = styled.div`
         border-color: #007bff;
       }
     }
-}`;
+    }
+`;
 
 
 const SubmitButton = styled.button`
