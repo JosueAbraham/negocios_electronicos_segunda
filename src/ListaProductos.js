@@ -46,6 +46,35 @@ const Table = styled.table`
 `;
 
 
+const ProductItem = styled.tr`
+  td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+`;
+
+const AñadirProductoBoton = styled.button`
+    background-color: #408674;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 10px;
+    margin-bottom: 20px; /* Espaciado inferior para separar del contenido siguiente */
+    margin-left: 20px; /* Agregar margen al lado izquierdo */
+
+    transition: background-color 0.3s ease;
+
+
+
+    &:hover {
+      background-color: #2a6d5c;
+    }
+`;
+
+
 const ListaProductos = () => {
     const [products, setProducts] = useState([]);
     const [showForm, setShowForm] = useState(false);
