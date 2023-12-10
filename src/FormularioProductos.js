@@ -3,7 +3,30 @@ import styled from 'styled-components';
 
 
 
-const FormularioProductos = () => {
+const FormularioProductos = ({ onAddProduct, onClose, editingProduct }) => {
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+
+    useEffect(() => {
+        if (editingProduct) {
+            setName(editingProduct.name);
+            setDescription(editingProduct.description);
+        }
+    }, [editingProduct]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const newProduct = {
+            name,
+            description,
+        };
+        onAddProduct(newProduct);
+        setName('');
+        setDescription('');
+    };
+
+
+
     return (
         <StyledFormularioProductos>
             <h2>{editingProduct ? 'Editar Producto' : 'Agregar Producto'}</h2>
