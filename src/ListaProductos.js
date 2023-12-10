@@ -2,6 +2,48 @@ import React, { useState } from 'react'
 import styled from 'styled-components';
 import FormularioProductos from './FormularioProductos';
 
+const StyledListaProductos = styled.div`
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+
+  h1 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+`;
+
+const TextoProductos = styled.h1`
+    width: 100%;
+    margin-top: 60px;
+    text-align: center;
+
+    color: #0f0f0f;
+    margin-bottom: 30px;
+`;
+
+
+const Table = styled.table`
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  margin-top: 30px;
+  border-collapse: collapse;
+  
+  
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    
+  }
+
+  th {
+    background-color: #7c3e38;
+    color: #fff;
+  }
+`;
 
 
 const ListaProductos = () => {
