@@ -60,6 +60,24 @@ const SubmitButton = styled.button`
 `;
 
 
+const CancelButton = styled.button`
+  background-color: #dc3545; /* Color rojo */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-top: 10px;
+  align-self: flex-start; /* Mover el botón al extremo izquierdo */
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #c82333;
+  }
+`;
+
+
 
 const FormularioProductos = ({ onAddProduct, onClose, editingProduct }) => {
     const [name, setName] = useState('');
