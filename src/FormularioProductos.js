@@ -26,7 +26,6 @@ const FormularioProductos = ({ onAddProduct, onClose, editingProduct }) => {
     };
 
 
-
     return (
         <StyledFormularioProductos>
             <h2>{editingProduct ? 'Editar Producto' : 'Agregar Producto'}</h2>

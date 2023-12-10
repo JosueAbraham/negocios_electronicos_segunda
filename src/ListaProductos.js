@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
+import FormularioProductos from './FormularioProductos';
 
 
 
 const ListaProductos = () => {
-
+    const [products, setProducts] = useState([]);
+    const [showForm, setShowForm] = useState(false);
+    const [editingProduct, setEditingProduct] = useState(null);
 
     const handleAddProduct = (product) => {
         if (editingProduct) {
