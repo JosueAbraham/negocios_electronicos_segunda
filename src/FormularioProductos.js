@@ -2,6 +2,49 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
 
 
+const StyledFormularioProductos = styled.div`
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+
+  h2 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      outline: none;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        border-color: #007bff;
+      }
+    }
+
+}
+
+  `;
+
+
 
 const FormularioProductos = ({ onAddProduct, onClose, editingProduct }) => {
     const [name, setName] = useState('');
