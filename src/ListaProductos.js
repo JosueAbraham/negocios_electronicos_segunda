@@ -75,6 +75,53 @@ const AñadirProductoBoton = styled.button`
 `;
 
 
+
+const ActionsContainer = styled.div`
+  display: flex;
+  justify-content: center; /* Centrar los botones horizontalmente */
+//   margin-top: 8px; /* Espacio superior para separar del contenido superior */
+//   flex-direction: column;
+//  justify-content: space-between;
+`;
+
+const EliminarBoton = styled.button`
+  background-color: #f40707; /* Color rojo */
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-left: 8px; /* Agregar espacio a la izquierda */
+//   margin-bottom: 5px; /* Espaciado inferior para separar los botones */
+transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #c90e0e;
+  }
+`;
+
+const EditarBoton = styled.button`
+  background-color: #386b7e; /* Color azul */
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-right: 8px; /* Agregar espacio a la derecha */
+//   margin-bottom: 5px;
+
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #48879f;
+  }
+`;
+
+
+
+
 const ListaProductos = () => {
     const [products, setProducts] = useState([]);
     const [showForm, setShowForm] = useState(false);
