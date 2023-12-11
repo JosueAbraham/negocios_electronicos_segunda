@@ -54,6 +54,13 @@ const ProductItem = styled.tr`
   }
 `;
 
+const CenteredContainer = styled.div`
+display: flex;
+justify-content: left;
+align-items: center;
+margin-top: 20px; /* Adjust the margin as needed */
+`;
+
 const AñadirProductoBoton = styled.button`
     background-color: #DC7633;
     color: #fff;
@@ -63,7 +70,7 @@ const AñadirProductoBoton = styled.button`
     font-size: 16px;
     border-radius: 10px;
     margin-bottom: 20px; /* Espaciado inferior para separar del contenido siguiente */
-    margin-left: 20px; /* Agregar margen al lado izquierdo */
+    margin-left: 30px; /* Agregar margen al lado izquierdo */
 
     transition: background-color 0.3s ease;
 
@@ -158,9 +165,14 @@ const ListaProductos = () => {
   return (
     <>
       <TextoProductos>Lista de productos</TextoProductos>
-      <AñadirProductoBoton onClick={() => setShowForm(!showForm)}>
-        {showForm ? 'Ocultar formulario' : 'Añadir producto'}
-      </AñadirProductoBoton>
+      <CenteredContainer>
+
+        <AñadirProductoBoton onClick={() => setShowForm(!showForm)}>
+          {showForm ? 'Ocultar formulario' : 'Añadir producto'}
+
+        </AñadirProductoBoton>
+      </CenteredContainer>
+
       {showForm && (
         <FormularioProductos
           onAddProduct={handleAddProduct}
