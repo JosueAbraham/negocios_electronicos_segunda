@@ -15,11 +15,11 @@ const StyledListaProductos = styled.div`
 
 const TextoProductos = styled.h1`
     width: 100%;
-    margin-top: 60px;
+    margin-top: 40px;
     text-align: center;
 
     color: #0f0f0f;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 `;
 
 
@@ -40,7 +40,7 @@ const Table = styled.table`
   }
 
   th {
-    background-color: #7c3e38;
+    background-color: #356961;
     color: #fff;
   }
 `;
@@ -55,7 +55,7 @@ const ProductItem = styled.tr`
 `;
 
 const AñadirProductoBoton = styled.button`
-    background-color: #408674;
+    background-color: #DC7633;
     color: #fff;
     border: none;
     padding: 8px 15px;
@@ -70,7 +70,7 @@ const AñadirProductoBoton = styled.button`
 
 
     &:hover {
-      background-color: #2a6d5c;
+      background-color: #DC7633;
     }
 `;
 
@@ -85,7 +85,7 @@ const ActionsContainer = styled.div`
 `;
 
 const EliminarBoton = styled.button`
-  background-color: #f40707; /* Color rojo */
+  background-color: #C7391A; /* Color rojo */
   color: #fff;
   border: none;
   padding: 8px 15px;
@@ -102,7 +102,7 @@ transition: background-color 0.3s ease;
 `;
 
 const EditarBoton = styled.button`
-  background-color: #C5C721; /* Color azul */
+  background-color: #D7CF0A; /* Color azul */
   color: #fff;
   border: none;
   padding: 8px 15px;
@@ -115,7 +115,7 @@ const EditarBoton = styled.button`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #48879f;
+    background-color: #E7DF0E;
   }
 `;
 

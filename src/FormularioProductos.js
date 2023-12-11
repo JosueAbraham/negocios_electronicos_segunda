@@ -43,24 +43,6 @@ const StyledFormularioProductos = styled.div`
 `;
 
 
-// const SubmitButton = styled.button`
-//   background-color: #28a745; /* Color verde */
-//   color: #fff;
-//   border: none;
-//   padding: 10px 20px;
-//   cursor: pointer;
-//   font-size: 16px;
-//   border-radius: 4px;
-//   margin-top: 10px;
-//   align-self: flex-end; /* Mover el botón al extremo derecho */
-//   transition: background-color 0.3s ease;
-
-//   &:hover {
-//     background-color: #218838;
-//   }
-// `;
-
-
 const SaveButton = styled.button`
   background-color: #386b7e; /* Color azul */
   color: #fff;
@@ -97,7 +79,7 @@ const AddButton = styled.button`
 
 
 const CancelButtonAñadir = styled.button`
-  background-color: pink; /* Color rojo */
+  background-color: #CB4335; /* Color rojo */
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -109,13 +91,13 @@ const CancelButtonAñadir = styled.button`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #c82;
+    background-color: #A93226;
   }
 `;
 
 
 const CancelButtonEditar = styled.button`
-  background-color: #dc3545; /* Color rojo */
+  background-color: #CB4335; /* Color rojo */
   color: #fff;
   border: none;
   padding: 10px 20px;
