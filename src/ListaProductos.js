@@ -102,7 +102,7 @@ transition: background-color 0.3s ease;
 `;
 
 const EditarBoton = styled.button`
-  background-color: #386b7e; /* Color azul */
+  background-color: #C5C721; /* Color azul */
   color: #fff;
   border: none;
   padding: 8px 15px;
@@ -123,82 +123,85 @@ const EditarBoton = styled.button`
 
 
 const ListaProductos = () => {
-    const [products, setProducts] = useState([]);
-    const [showForm, setShowForm] = useState(false);
-    const [editingProduct, setEditingProduct] = useState(null);
+  const [products, setProducts] = useState([]);
+  const [showForm, setShowForm] = useState(false);
+  const [editingProduct, setEditingProduct] = useState(null);
+  const [idCounter, setIdCounter] = useState(1);
 
-    const handleAddProduct = (product) => {
-        if (editingProduct) {
-            const updatedProducts = products.map((p) =>
-                p.id === editingProduct.id ? { ...p, ...product } : p
-            );
-            setProducts(updatedProducts);
+  const handleAddProduct = (product) => {
+    if (editingProduct) {
+      const updatedProducts = products.map((p) =>
+        p.id === editingProduct.id ? { ...p, ...product } : p
+      );
+      setProducts(updatedProducts);
+      setEditingProduct(null);
+    } else {
+      setProducts([...products, { id: idCounter, ...product }]);
+      setIdCounter((prevCounter) => prevCounter + 1); // Incrementar el contador
+
+    }
+
+    setShowForm(false);
+  };
+
+  const handleEditProduct = (product) => {
+    setEditingProduct(product);
+    setShowForm(true);
+  };
+
+  const handleDeleteProduct = (id) => {
+    const updatedProducts = products.filter((product) => product.id !== id);
+    setProducts(updatedProducts);
+  };
+
+
+  return (
+    <>
+      <TextoProductos>Lista de productos</TextoProductos>
+      <AñadirProductoBoton onClick={() => setShowForm(!showForm)}>
+        {showForm ? 'Ocultar formulario' : 'Añadir producto'}
+      </AñadirProductoBoton>
+      {showForm && (
+        <FormularioProductos
+          onAddProduct={handleAddProduct}
+          onClose={() => {
+            setShowForm(false);
             setEditingProduct(null);
-        } else {
-            setProducts([...products, { id: Date.now(), ...product }]);
-        }
-
-        setShowForm(false);
-    };
-
-    const handleEditProduct = (product) => {
-        setEditingProduct(product);
-        setShowForm(true);
-    };
-
-    const handleDeleteProduct = (id) => {
-        const updatedProducts = products.filter((product) => product.id !== id);
-        setProducts(updatedProducts);
-    };
-
-
-    return (
-        <>
-            <TextoProductos>Lista de productos</TextoProductos>
-            <AñadirProductoBoton onClick={() => setShowForm(!showForm)}>
-                {showForm ? 'Hide Form' : 'Añadir producto'}
-            </AñadirProductoBoton>
-            {showForm && (
-                <FormularioProductos
-                    onAddProduct={handleAddProduct}
-                    onClose={() => {
-                        setShowForm(false);
-                        setEditingProduct(null);
-                    }}
-                    editingProduct={editingProduct}
-                />
-            )}
-            <Table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {products.map((product) => (
-                        <ProductItem key={product.id}>
-                            <td>{product.id}</td>
-                            <td>{product.name}</td>
-                            <td>{product.description}</td>
-                            <td>
-                                <ActionsContainer>
-                                    <EditarBoton onClick={() => handleEditProduct(product)}>
-                                        Editar
-                                    </EditarBoton>
-                                    <EliminarBoton onClick={() => handleDeleteProduct(product.id)}>
-                                        Eliminar
-                                    </EliminarBoton>
-                                </ActionsContainer>
-                            </td>
-                        </ProductItem>
-                    ))}
-                </tbody>
-            </Table>
-        </>
-    );
+          }}
+          editingProduct={editingProduct}
+        />
+      )}
+      <Table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {products.map((product) => (
+            <ProductItem key={product.id}>
+              <td>{product.id}</td>
+              <td>{product.name}</td>
+              <td>{product.description}</td>
+              <td>
+                <ActionsContainer>
+                  <EditarBoton onClick={() => handleEditProduct(product)}>
+                    Editar
+                  </EditarBoton>
+                  <EliminarBoton onClick={() => handleDeleteProduct(product.id)}>
+                    Eliminar
+                  </EliminarBoton>
+                </ActionsContainer>
+              </td>
+            </ProductItem>
+          ))}
+        </tbody>
+      </Table>
+    </>
+  );
 };
 
 export default ListaProductos;

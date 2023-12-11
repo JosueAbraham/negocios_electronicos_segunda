@@ -43,7 +43,42 @@ const StyledFormularioProductos = styled.div`
 `;
 
 
-const SubmitButton = styled.button`
+// const SubmitButton = styled.button`
+//   background-color: #28a745; /* Color verde */
+//   color: #fff;
+//   border: none;
+//   padding: 10px 20px;
+//   cursor: pointer;
+//   font-size: 16px;
+//   border-radius: 4px;
+//   margin-top: 10px;
+//   align-self: flex-end; /* Mover el botón al extremo derecho */
+//   transition: background-color 0.3s ease;
+
+//   &:hover {
+//     background-color: #218838;
+//   }
+// `;
+
+
+const SaveButton = styled.button`
+  background-color: #386b7e; /* Color azul */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-top: 10px;
+  align-self: flex-end; /* Mover el botón al extremo derecho */
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #48879f;
+  }
+`;
+
+const AddButton = styled.button`
   background-color: #28a745; /* Color verde */
   color: #fff;
   border: none;
@@ -61,7 +96,25 @@ const SubmitButton = styled.button`
 `;
 
 
-const CancelButton = styled.button`
+const CancelButtonAñadir = styled.button`
+  background-color: pink; /* Color rojo */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-top: 10px;
+  align-self: flex-start; /* Mover el botón al extremo izquierdo */
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #c82;
+  }
+`;
+
+
+const CancelButtonEditar = styled.button`
   background-color: #dc3545; /* Color rojo */
   color: #fff;
   border: none;
@@ -81,55 +134,64 @@ const CancelButton = styled.button`
 
 
 const FormularioProductos = ({ onAddProduct, onClose, editingProduct }) => {
-    const [name, setName] = useState('');
-    const [description, setDescription] = useState('');
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
 
-    useEffect(() => {
-        if (editingProduct) {
-            setName(editingProduct.name);
-            setDescription(editingProduct.description);
-        }
-    }, [editingProduct]);
+  useEffect(() => {
+    if (editingProduct) {
+      setName(editingProduct.name);
+      setDescription(editingProduct.description);
+    }
+  }, [editingProduct]);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const newProduct = {
-            name,
-            description,
-        };
-        onAddProduct(newProduct);
-        setName('');
-        setDescription('');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newProduct = {
+      name,
+      description,
     };
+    onAddProduct(newProduct);
+    setName('');
+    setDescription('');
+  };
 
 
-    return (
-        <StyledFormularioProductos>
-            <h2>{editingProduct ? 'Editar Producto' : 'Agregar Producto'}</h2>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Nombre:
-                </label>
-                <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                <label>
-                    Descripción:
-                </label>
-                <input
-                    type="text"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                />
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <SubmitButton type="submit">
-                        {editingProduct ? 'Guardar Cambios' : 'Agregar'}
-                    </SubmitButton>
-                    <CancelButton type="button" onClick={onClose}>
-                        Cancelar
-                    </CancelButton>
-                </div>
-            </form>
-        </StyledFormularioProductos>
-    );
+  return (
+    <StyledFormularioProductos>
+      <h2>{editingProduct ? 'Editar Producto' : 'Agregar Producto'}</h2>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Nombre:
+        </label>
+        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+        <label>
+          Descripción:
+        </label>
+        <input
+          type="text"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          {editingProduct ? (
+            <>
+              <SaveButton type="submit">Guardar Cambios</SaveButton>
+              <CancelButtonEditar type="button" onClick={onClose}>
+                Cancelar
+              </CancelButtonEditar>
+            </>
+          ) : (
+            <>
+              <AddButton type="submit">Agregar</AddButton>
+              <CancelButtonAñadir type="button" onClick={onClose}>
+                Cancelar
+              </CancelButtonAñadir>
+            </>
+          )}
+        </div>
+      </form>
+    </StyledFormularioProductos>
+  );
 };
 
 export default FormularioProductos;
