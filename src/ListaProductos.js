@@ -29,6 +29,8 @@ const Table = styled.table`
   text-align: center;
   margin-top: 30px;
   border-collapse: collapse;
+  // background-color: #000; /* Color de fondo de toda la página */
+
   
   
   th,
@@ -51,6 +53,7 @@ const ProductItem = styled.tr`
     padding: 15px;
     border: 1px solid #ddd;
     text-align: center;
+    // color: #fff
   }
 `;
 
